@@ -1,4 +1,4 @@
-name: debian11-fish docker image creation
+name: debian11-fish docker container image creation
 on:
   push:
     branches:
@@ -7,26 +7,27 @@ on:
     - cron: '0 18 * * *'
 jobs:
   push_to_registry:
-    name: Build Docker image from Dockerfile
+    name: Build docker image from Dockerfile
     runs-on: ubuntu-latest
     steps:
-      - name: Get Branch Name
-        run: echo "::set-output name=CONTAINER_NAME::debian11-fish"
-        id: get-branch-name
+      - name: Set container image name
+        run: echo "::set-output name=image-name::debian11-fish"
+        id: container
       - name: Show Branch Name
-        run: echo ${{ steps.get-branch-name.outputs.CONTAINER_NAME }}
+        run: echo ${{ steps.container.outputs.image-name }}
       - name: Check out the repo
         uses: actions/checkout@v2
-      - name: Login to DockerHub
+      - name: Login to GitHub Container Registry
         uses: docker/login-action@v1 
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GH_ACCESS_TOKEN }}
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
       - name: Docker Build and Push
         uses: docker/build-push-action@v2
         with:
           push: true
-          file: ./docker/Dockerfile
-          tags: ${{ secrets.DOCKERHUB_REPONAME }}/${{ steps.get-branch-name.outputs.CONTAINER_NAME }}:latest
+          context: ./docker
+          tags: ghcr.io/${{ github.repository_owner }}/${{ steps.container.outputs.image-name }}:latest
