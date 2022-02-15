@@ -10,7 +10,8 @@ ARG GROUP_ID=$USER_ID
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
     # install debian packages
-    && apt-get install -y \
+    && apt-get install  --no-install-recommends -y \
+        ca-certificates \
         git \
         lsb-release \
         sudo \
