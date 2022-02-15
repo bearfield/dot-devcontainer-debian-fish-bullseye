@@ -1,6 +1,6 @@
 DOCKERHUB_REPONAME=ghcr.io/kumanoryo
 CONTAINER_NAME=debian-fish
-CONTAINER_TAG=test.bulls-eye
+CONTAINER_TAG=test.bullseye
 
 MAKEFILE_DIR=$(dir $(realpath $(firstword $(MAKEFILE_LIST))))
 WORK_DIR=$(MAKEFILE_DIR)

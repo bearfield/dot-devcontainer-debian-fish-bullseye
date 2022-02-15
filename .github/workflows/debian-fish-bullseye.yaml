@@ -1,4 +1,4 @@
-name: debian-fish-bulls-eye docker container image creation
+name: debian-fish-bullseye docker container image creation
 on:
   push:
     branches:
@@ -13,7 +13,7 @@ jobs:
       - name: Set container image name and tag
         run: |
           echo "::set-output name=image-name::debian-fish"
-          echo "::set-output name=tag::bulls-eye"
+          echo "::set-output name=tag::bullseye"
         id: container
       - name: Check out the repo
         uses: actions/checkout@v2
