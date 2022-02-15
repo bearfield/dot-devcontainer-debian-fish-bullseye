@@ -1,4 +1,4 @@
-DOCKERHUB_REPONAME=kumanoryo
+DOCKERHUB_REPONAME=ghcr.io/kumanoryo
 CONTAINER_NAME=debian11-fish
 
 MAKEFILE_DIR=$(dir $(realpath $(firstword $(MAKEFILE_LIST))))
