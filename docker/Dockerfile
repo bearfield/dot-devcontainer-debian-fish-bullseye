@@ -60,3 +60,4 @@ RUN fisher install oh-my-fish/theme-bobthefish
 COPY config.fish /home/$USER_NAME/.config/fish/config.fish
 # set env
 ENV DEBIAN_FRONTEND=dialog
+LABEL org.opencontainers.image.source https://github.com/kumanoryo/dot-devcontainer-debian-fish-bullseye
