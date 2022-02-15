@@ -10,11 +10,10 @@ jobs:
     name: Build docker image from Dockerfile
     runs-on: ubuntu-latest
     steps:
-      - name: Set container image name
-        run: echo "::set-output name=container-image::debian-fish"
-        id: container
-      - name: Set container tag
-        run: echo "::set-output name=container-tag::bulls-eye"
+      - name: Set container image name and tag
+        run: |
+          echo "::set-output name=image-name::debian-fish"
+          echo "::set-output name=tag::bulls-eye"
         id: container
       - name: Check out the repo
         uses: actions/checkout@v2
@@ -31,4 +30,4 @@ jobs:
         with:
           push: true
           context: ./docker
-          tags: ghcr.io/${{ github.repository_owner }}/${{ steps.container.outputs.container-image }}:${{ steps.container.outputs.container-tag }}
+          tags: ghcr.io/${{ github.repository_owner }}/${{ steps.container.outputs.image-name }}:${{ steps.container.outputs.tag }}
