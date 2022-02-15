@@ -1,4 +1,4 @@
-name: debian11-fish docker container image creation
+name: debian-fish-bulls-eye docker container image creation
 on:
   push:
     branches:
@@ -11,10 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set container image name
-        run: echo "::set-output name=image-name::debian11-fish"
+        run: echo "::set-output name=container-image::debian-fish"
         id: container
-      - name: Show Branch Name
-        run: echo ${{ steps.container.outputs.image-name }}
+      - name: Set container tag
+        run: echo "::set-output name=container-tag::bulls-eye"
+        id: container
       - name: Check out the repo
         uses: actions/checkout@v2
       - name: Login to GitHub Container Registry
@@ -30,4 +31,4 @@ jobs:
         with:
           push: true
           context: ./docker
-          tags: ghcr.io/${{ github.repository_owner }}/${{ steps.container.outputs.image-name }}:latest
+          tags: ghcr.io/${{ github.repository_owner }}/${{ steps.container.outputs.container-image }}:${{ steps.container.outputs.container-tag }}

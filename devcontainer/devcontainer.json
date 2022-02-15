@@ -1,6 +1,6 @@
 {
-    "name": "fish",
-    "image": "kumanoryo/debian11-fish:latest",
+    "name": "debian-fish-bulls-eye",
+    "image": "ghcr.io/kumanoryo/debian-fish:bulls-eye",
 
     "settings": {
         "terminal.integrated.profiles.linux": {
