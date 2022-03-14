@@ -21,6 +21,7 @@ RUN apt-get update \
         peco \
         fish \
         locales \
+        openssh-client \
 #
 # set locale
     && echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen \
