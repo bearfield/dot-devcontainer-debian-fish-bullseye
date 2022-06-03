@@ -23,6 +23,7 @@ RUN apt-get update \
         locales \
         openssh-client \
         unzip \
+        shellcheck \
 #
 # set locale
     && echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen \
