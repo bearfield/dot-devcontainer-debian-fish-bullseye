@@ -23,5 +23,10 @@
         "source=${localEnv:HOME}/.config/gcloud,target=/home/kumano_ryo/.config/gcloud,type=bind,consistency=cached"
     ],
     "extensions": [
+        "wayou.vscode-todo-highlight",
+        "github.vscode-pull-request-github",
+        "hediet.vscode-drawio",
+        "timonwong.shellcheck",
+        "foxundermoon.shell-format"
 	]
 }
