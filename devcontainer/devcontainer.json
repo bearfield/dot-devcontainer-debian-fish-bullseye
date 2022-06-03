@@ -26,6 +26,8 @@
         "wayou.vscode-todo-highlight",
         "github.vscode-pull-request-github",
         "hediet.vscode-drawio",
+        "redhat.vscode-yaml",
+        "pkief.material-icon-theme",
         "timonwong.shellcheck",
         "foxundermoon.shell-format"
 	]
