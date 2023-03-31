@@ -1,34 +1,36 @@
 {
     "name": "debian-fish-bullseye",
     "image": "ghcr.io/kumanoryo/debian-fish:bullseye",
-
-    "settings": {
-        "terminal.integrated.profiles.linux": {
-            "fish": {
-                "path": "fish"
-            }
-        },
-        "terminal.integrated.fontFamily": "Hack Nerd Font Mono,Source Code Pro for Powerline",
-        "workbench.colorCustomizations": {
-            "statusBar.background": "#859900",
-            "statusBar.foreground": "#FFFFFF"
-        }
-    },
-
     "remoteUser": "kumano_ryo",
-
     "mounts": [
         "source=${localEnv:HOME}/.gitconfig,target=/home/kumano_ryo/.gitconfig,type=bind,consistency=cached",
         "source=${localEnv:HOME}/.ssh,target=/home/kumano_ryo/.ssh,type=bind,consistency=cached",
         "source=${localEnv:HOME}/.config/gcloud,target=/home/kumano_ryo/.config/gcloud,type=bind,consistency=cached"
     ],
-    "extensions": [
-        "wayou.vscode-todo-highlight",
-        "github.vscode-pull-request-github",
-        "hediet.vscode-drawio",
-        "redhat.vscode-yaml",
-        "pkief.material-icon-theme",
-        "timonwong.shellcheck",
-        "foxundermoon.shell-format"
-	]
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.profiles.linux": {
+                    "fish": {
+                        "path": "fish"
+                    }
+                },
+                "terminal.integrated.fontFamily": "Hack Nerd Font Mono,Source Code Pro for Powerline",
+                "workbench.colorCustomizations": {
+                    "statusBar.background": "#859900",
+                    "statusBar.foreground": "#FFFFFF"
+                }
+            },
+            "extensions": [
+                "wayou.vscode-todo-highlight",
+                "github.vscode-pull-request-github",
+                "hediet.vscode-drawio",
+                "redhat.vscode-yaml",
+                "pkief.material-icon-theme",
+                "timonwong.shellcheck",
+                "foxundermoon.shell-format",
+                "github.copilot"
+            ]
+        }
+    }
 }
