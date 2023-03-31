@@ -19,7 +19,8 @@
                 "workbench.colorCustomizations": {
                     "statusBar.background": "#859900",
                     "statusBar.foreground": "#FFFFFF"
-                }
+                },
+                "git.enableCommitSigning": true
             },
             "extensions": [
                 "wayou.vscode-todo-highlight",
