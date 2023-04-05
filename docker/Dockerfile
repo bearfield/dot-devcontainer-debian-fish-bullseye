@@ -24,6 +24,11 @@ RUN apt-get update \
         openssh-client \
         unzip \
         shellcheck \
+        libcurl4-gnutls-dev \
+        libexpat1-dev gettext \
+        libz-dev \
+        libssl-dev \
+        gcc \
 #
 # set locale
     && echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen \
@@ -66,6 +71,15 @@ RUN fisher install oh-my-fish/theme-bobthefish
 #
 # copy config.fish
 COPY config.fish /home/$USER_NAME/.config/fish/config.fish
+#
+# install git
+WORKDIR /usr/local/src
+RUN sudo git clone git://git.kernel.org/pub/scm/git/git.git \
+    && cd git \
+    && sudo make prefix=/usr/bin all \
+    && sudo make prefix=/usr/bin install \
+    && cd .. \
+    && sudo rm -fr git
 # set env
 ENV DEBIAN_FRONTEND=dialog
 LABEL org.opencontainers.image.source https://github.com/kumanoryo/dot-devcontainer-debian-fish-bullseye
