@@ -29,7 +29,8 @@
                 "pkief.material-icon-theme",
                 "timonwong.shellcheck",
                 "foxundermoon.shell-format",
-                "github.copilot"
+                "github.copilot",
+                "bmalehorn.vscode-fish"
             ]
         }
     }
