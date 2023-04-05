@@ -72,13 +72,14 @@ RUN fisher install oh-my-fish/theme-bobthefish
 # copy config.fish
 COPY config.fish /home/$USER_NAME/.config/fish/config.fish
 #
-# install git
+# install git (required git >=  2.35)
 WORKDIR /usr/local/src
 RUN sudo git clone git://git.kernel.org/pub/scm/git/git.git \
+    && sudo apt-get remove -y git \
     && cd git \
-    && sudo make prefix=/usr/bin all \
-    && sudo make prefix=/usr/bin install \
-    && cd .. \
+    && sudo make prefix=/usr all \
+    && sudo make prefix=/usr install \
+    && cd ../ \
     && sudo rm -fr git
 # set env
 ENV DEBIAN_FRONTEND=dialog
