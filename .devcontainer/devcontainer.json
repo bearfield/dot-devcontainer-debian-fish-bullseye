@@ -26,7 +26,8 @@
                 "timonwong.shellcheck",
                 "foxundermoon.shell-format",
                 "github.copilot",
-                "bmalehorn.vscode-fish"
+                "bmalehorn.vscode-fish",
+                "ms-vscode.makefile-tools"
             ]
         }
     }
